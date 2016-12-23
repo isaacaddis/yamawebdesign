@@ -2005,7 +2005,7 @@ a.menu-toggle {
 	max-width: 1020px;
 }
 .faq-content .bgrid {
-	padding: 0 30px;
+	padding: 20 30px;
 }
 
 /**
@@ -2013,7 +2013,11 @@ a.menu-toggle {
  * faq
  * -
  */
-
+.formy{
+	display:flex;
+	align-items:center;
+	justify-items:center;
+}
 @media only screen and (max-width:768px) {
 	.faq-content {
 		max-width: 650px;
@@ -2370,5 +2374,10 @@ footer ul li {
 	background: #ff7b29;
 	color: #FFFFFF;
 }
-
+#portfolio{
+	padding:10px;
+}
+#portfolio-heading{
+	padding-bottom:10px;
+}
 /*# sourceMappingURL=main.css.map */

@@ -12,11 +12,14 @@ var livereload = require("gulp-livereload");
 var concat = require("gulp-concat");
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
+var cssnano = require('gulp-cssnano');
+
 global.errorMessage = '';
 
 gulp.task('styles', function(){
 	gulp.src('css/*.css')
 	    .pipe(concat('style.min.css'))
+	    .pipe(cssnano())
 	    .pipe(gulp.dest('css/'))
 });
 gulp.task('watch', function(){

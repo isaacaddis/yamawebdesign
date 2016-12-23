@@ -11,5 +11,8 @@
     "gulp-concat": "*",
     "gulp-uglify": "*",
     "gulp-watch": "*"
+  },
+  "devDependencies": {
+    "gulp-uglify": "^2.0.0"
   }
 }
