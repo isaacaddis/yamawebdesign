@@ -17,7 +17,7 @@ global.errorMessage = '';
 gulp.task('styles', function(){
 	gulp.src('css/*.css')
 	    .pipe(concat('style.min.css'))
-	    .pipe(gulp.dest(''))
+	    .pipe(gulp.dest('css/'))
 });
 gulp.task('watch', function(){
 	gulp.watch('css/*.css',['styles']);

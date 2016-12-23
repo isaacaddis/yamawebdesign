@@ -33,7 +33,9 @@
  *
  * ------------------------------------------------------------------- 
  */
-
+.white-text{
+	color:white;
+}
 @import url("css/micons/fonts.css");
 @import url("css/ionicons/css/ionicons.min.css");
 @import url("css/micons/micons.css");
