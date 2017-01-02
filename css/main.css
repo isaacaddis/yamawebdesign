@@ -36,7 +36,14 @@
 .white-text{
 	color:white;
 }
-
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	border-radius: 5px; /* 5px rounded corners */
+	background:white;
+	padding:10px 5px 5px 10px;
+	margin-bottom:10px;
+}
 @import url("css/micons/fonts.css");
 @import url("css/ionicons/css/ionicons.min.css");
 @import url("css/micons/micons.css");
@@ -50,14 +57,24 @@
 
 html {
 	font-size: 10px;
+	overflow-x:hidden;
+}
+.center-text{
+	text-align:center;
 }
 @media only screen and (max-width:1024px) {
 	html {
 		font-size: 9.375px;
 	}
 }
+/*
+Font control
+*/
 *{
 	font-family:'Raleway',sans-serif;
+}
+#portfolio_contain{
+	margin-bottom:10px;
 }
 @media only screen and (max-width:768px) {
 	html {
@@ -853,6 +870,11 @@ header .logo a {
 	-ms-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
+.valign{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
 .sticky {
 	position: fixed;
 	background: #14171c;
@@ -1609,7 +1631,7 @@ a.menu-toggle {
  */
 
 #pricing {
-	background: #EAEAED;
+	background-color: #EAEAED;
 	padding-top: 12rem;
 	padding-bottom: 9.6rem;
 }
