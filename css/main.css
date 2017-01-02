@@ -2233,6 +2233,9 @@ footer ul li {
 .footer-main ul a:hover, .footer-main ul a:focus {
 	color: #FFFFFF;
 }
+#name{
+	width:100%;
+}
 .footer-main .footer-logo {
 	width: 162px;
 	height: 39px;
