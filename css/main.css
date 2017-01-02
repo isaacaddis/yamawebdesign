@@ -71,7 +71,7 @@ html {
 Font control
 */
 *{
-	font-family:'Raleway',sans-serif;
+	font-family:'Open Sans',sans-serif;
 }
 #portfolio_contain{
 	margin-bottom:10px;
@@ -121,7 +121,7 @@ a:hover, a:focus {
  */
 
 h1, h2, h3, h4, h5, h6, .h01, .h02, .h03, .h04, .h05, .h06 {
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	color: #252525;
 	font-style: normal;
 	text-rendering: optimizeLegibility;
@@ -131,7 +131,7 @@ h3, .h03, h4, .h04 {
 	margin-bottom: 1.8rem;
 }
 h5, .h05, h6, .h06 {
-	font-family: "raleway-heavy";
+	font-family: "Open Sans";
 	margin-bottom: 1.2rem;
 }
 
@@ -349,7 +349,7 @@ table {
 	border-width: 0;
 	width: 100%;
 	max-width: 100%;
-	font-family: "raleway-regular", sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 th, td {
 	padding: 1.5rem 3rem;
@@ -358,7 +358,7 @@ th, td {
 }
 th {
 	color: #252525;
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 td {
 	line-height: 1.5;
@@ -648,7 +648,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
 	display: inline-block;
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.6rem;
 	height: 5rem;
 	line-height: 5rem;
@@ -921,7 +921,7 @@ a.menu-toggle {
 
 /* main-nav-wrap */
 #main-nav-wrap {
-	font-family: "raleway-heavy", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 11.5px;
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
@@ -1216,7 +1216,7 @@ a.menu-toggle {
 }
 .intro-content h5 {
 	color: rgba(255, 255, 255, 0.6);
-	font-family: "raleway-heavy", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.8rem;
 	line-height: 1.667;
 	margin-bottom: 0.6rem;
@@ -1237,7 +1237,7 @@ a.menu-toggle {
 	line-height: 6rem;
 	padding: 0 3rem !important;
 	margin-top: 1.8rem;
-	font-family: "raleway-heavy", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.4rem;
 	text-transform: uppercase;
 	letter-spacing: .4rem;
@@ -1683,7 +1683,7 @@ a.menu-toggle {
 	margin-left: -40px;
 }
 .pricing-content .price-block .plan-price {
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 5rem;
 	line-height: 1;
 	margin-bottom: .6rem;
@@ -1695,7 +1695,7 @@ a.menu-toggle {
 }
 .pricing-content .price-block .price-month {
 	margin-bottom: 1.2rem;
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.6rem;
 }
 .pricing-content .price-block .price-meta {
@@ -1715,7 +1715,7 @@ a.menu-toggle {
 }
 .pricing-content .price-block .features {
 	list-style: none;
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.5rem;
 	color: rgba(0, 0, 0, 0.4);
 	margin: .6rem 0 1.8rem 0;
@@ -1726,7 +1726,7 @@ a.menu-toggle {
 }
 .pricing-content .price-block .features li strong {
 	color: #353F49;
-	font-family: "raleway-bold", serif;
+	font-family: "Open Sans", serif;
 	margin-right: 5px;
 }
 .pricing-content .price-block .features li:last-child {
@@ -1744,7 +1744,7 @@ a.menu-toggle {
 	text-align: center;
 	color: #FFFFFF;
 	background: #38424e;
-	font-family: "raleway-heavy", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: .15rem;
@@ -1834,7 +1834,7 @@ a.menu-toggle {
 	position: relative;
 }
 #testimonial-slider p {
-	font-family: "raleway-medium", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 2.5rem;
 	line-height: 1.8;
 	color: #8d8d8d;
@@ -1870,7 +1870,7 @@ a.menu-toggle {
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
-	font-family: "raleway-heavy", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.5rem;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -1879,7 +1879,7 @@ a.menu-toggle {
 }
 #testimonial-slider .testimonial-author .author-info span {
 	display: block;
-	font-family: "raleway-semibold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1.4rem;
 	line-height: 2.1rem;
 	letter-spacing: 0;
@@ -2194,7 +2194,7 @@ footer {
 	padding-bottom: 3rem;
 	font-size: 1.5rem;
 	line-height: 2.7rem;
-	font-family: "raleway-medium", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	color: #465166;
 }
 footer a, footer a:visited {
@@ -2224,7 +2224,7 @@ footer ul li {
 	font-size: 1.5rem;
 }
 .footer-main ul li {
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	list-style: none;
 }
 .footer-main ul a, .footer-main ul a:visited {
@@ -2256,7 +2256,7 @@ footer ul li {
 	background: #232933;
 	border: none;
 	width: 100%;
-	font-family: "raleway-regular", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	color: #bababa;
 	margin-bottom: 1.8rem;
 }
@@ -2264,7 +2264,7 @@ footer ul li {
 	display: none;
 }
 .footer-main .footer-subscribe .subscribe-form .subscribe-message {
-	font-family: "raleway-bold", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	color: #FFFFFF;
 }
 .footer-main .footer-subscribe .subscribe-form .subscribe-message i {
