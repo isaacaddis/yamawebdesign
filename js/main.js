@@ -1,235 +1,221 @@
-/** 
- * ===================================================================
- * main js
- *
- * ------------------------------------------------------------------- 
- */ 
-
-(function($) {
-
-	"use strict";
-
-	/*---------------------------------------------------- */
-	/* Preloader
-	------------------------------------------------------ */ 
-   $(window).load(function() {
-
-      // will first fade out the loading animation 
-    	$("#loader").fadeOut("slow", function(){
-
-        // will fade out the whole DIV that covers the website.
-        $("#preloader").delay(300).fadeOut("slow");
-
-      });       
-
-  	})
-
-
-	/*----------------------------------------------------*/
-	/*	Sticky Navigation
-	------------------------------------------------------*/
-   $(window).on('scroll', function() {
-
-		var y = $(window).scrollTop(),
-		    topBar = $('header');
-     
-	   if (y > 1) {
-	      topBar.addClass('sticky');
-	   }
-      else {
-         topBar.removeClass('sticky');
-      }
-    
-	});
+;(function () {
 	
-
-	/*-----------------------------------------------------*/
-  	/* Mobile Menu
-   ------------------------------------------------------ */  
-   var toggleButton = $('.menu-toggle'),
-       nav = $('.main-navigation');
-
-   toggleButton.on('click', function(event){
-		event.preventDefault();
-
-		toggleButton.toggleClass('is-clicked');
-		nav.slideToggle();
-	});
-
-  	if (toggleButton.is(':visible')) nav.addClass('mobile');
-
-  	$(window).resize(function() {
-   	if (toggleButton.is(':visible')) nav.addClass('mobile');
-    	else nav.removeClass('mobile');
-  	});
-
-  	$('#main-nav-wrap li a').on("click", function() {   
-
-   	if (nav.hasClass('mobile')) {   		
-   		toggleButton.toggleClass('is-clicked'); 
-   		nav.fadeOut();   		
-   	}     
-  	});
+	'use strict';
 
 
-   /*----------------------------------------------------*/
-  	/* Highlight the current section in the navigation bar
-  	------------------------------------------------------*/
-	var sections = $("section"),
-	navigation_links = $("#main-nav-wrap li a");	
 
-	sections.waypoint( {
+	// iPad and iPod detection	
+	var isiPad = function(){
+		return (navigator.platform.indexOf("iPad") != -1);
+	};
 
-       handler: function(direction) {
+	var isiPhone = function(){
+	    return (
+			(navigator.platform.indexOf("iPhone") != -1) || 
+			(navigator.platform.indexOf("iPod") != -1)
+	    );
+	};
 
-		   var active_section;
+	// Go to next section
+	var gotToNextSection = function(){
+		var el = $('.fh5co-learn-more'),
+			w = el.width(),
+			divide = -w/2;
+		el.css('margin-left', divide);
+	};
 
-			active_section = $('section#' + this.element.id);
+	// Loading page
+	var loaderPage = function() {
+		$(".fh5co-loader").fadeOut("slow");
+	};
 
-			if (direction === "up") active_section = active_section.prev();
+	// FullHeight
+	var fullHeight = function() {
+		if ( !isiPad() && !isiPhone() ) {
+			$('.js-fullheight').css('height', $(window).height() - 49);
+			$(window).resize(function(){
+				$('.js-fullheight').css('height', $(window).height() - 49);
+			})
+		}
+	};
 
-			var active_link = $('#main-nav-wrap a[href="#' + active_section.attr("id") + '"]');			
+	var toggleBtnColor = function() {
 
-         navigation_links.parent().removeClass("current");
-			active_link.parent().addClass("current");
+	
+		if ( $('#fh5co-hero').length > 0 ) {	
+			$('#fh5co-hero').waypoint( function( direction ) {
+				if( direction === 'down' ) {
+					$('.fh5co-nav-toggle').addClass('dark');
+				}
+			} , { offset: - $('#fh5co-hero').height() } );
 
-		}, 
-
-		offset: '25%'
-
-	});
-
-
-	/*----------------------------------------------------*/
-  	/* Flexslider
-  	/*----------------------------------------------------*/
-  	$(window).load(function() {
-
-	   $('#testimonial-slider').flexslider({
-	   	namespace: "flex-",
-	      controlsContainer: "",
-	      animation: 'slide',
-	      controlNav: true,
-	      directionNav: true,
-	      smoothHeight: true,
-	      slideshowSpeed: 7000,
-	      animationSpeed: 600,
-	      randomize: false,
-	      touch: true,
-	   });
-
-   });
-
-
-	/*----------------------------------------------------*/
-  	/* Smooth Scrolling
-  	------------------------------------------------------*/
-  	$('.smoothscroll').on('click', function (e) {
-	 	
-	 	e.preventDefault();
-
-   	var target = this.hash,
-    	$target = $(target);
-
-    	$('html, body').stop().animate({
-       	'scrollTop': $target.offset().top
-      }, 800, 'swing', function () {
-      	window.location.hash = target;
-      });
-
-  	});  
-  
-
-   /*----------------------------------------------------*/
-	/*  Placeholder Plugin Settings
-	------------------------------------------------------*/ 
-
-	$('input, textarea, select').placeholder()  
+			$('#fh5co-hero').waypoint( function( direction ) {
+				if( direction === 'up' ) {
+					$('.fh5co-nav-toggle').removeClass('dark');
+				}
+			} , { 
+				offset:  function() { return -$(this.element).height() + 0; }
+			} );
+		}
 
 
-	/*---------------------------------------------------- */
-   /* ajaxchimp
-	------------------------------------------------------ */
 
-	// Example MailChimp url: http://xxx.xxx.list-manage.com/subscribe/post?u=xxx&id=xxx
-	var mailChimpURL = 'http://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e65110b38d'
+	};
 
-	$('#mc-form').ajaxChimp({
 
-		language: 'es',
-	   url: mailChimpURL
+	// Scroll Next
+	var ScrollNext = function() {
+		$('body').on('click', '.scroll-btn', function(e){
+			e.preventDefault();
 
-	});
+			$('html, body').animate({
+				scrollTop: $( $(this).closest('[data-next="yes"]').next()).offset().top
+			}, 1000, 'easeInOutExpo');
+			return false;
+		});
+	};
 
-	// Mailchimp translation
-	//
-	//  Defaults:
-	//	 'submit': 'Submitting...',
-	//  0: 'We have sent you a confirmation email',
-	//  1: 'Please enter a value',
-	//  2: 'An email address must contain a single @',
-	//  3: 'The domain portion of the email address is invalid (the portion after the @: )',
-	//  4: 'The username portion of the email address is invalid (the portion before the @: )',
-	//  5: 'This email address looks fake or invalid. Please enter a real email address'
+	// Click outside of offcanvass
+	var mobileMenuOutsideClick = function() {
 
-	$.ajaxChimp.translations.es = {
-	  'submit': 'Submitting...',
-	  0: '<i class="fa fa-check"></i> We have sent you a confirmation email',
-	  1: '<i class="fa fa-warning"></i> You must enter a valid e-mail address.',
-	  2: '<i class="fa fa-warning"></i> E-mail address is not valid.',
-	  3: '<i class="fa fa-warning"></i> E-mail address is not valid.',
-	  4: '<i class="fa fa-warning"></i> E-mail address is not valid.',
-	  5: '<i class="fa fa-warning"></i> E-mail address is not valid.'
+		$(document).click(function (e) {
+	    var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
+	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+
+	    	if ( $('body').hasClass('offcanvas-visible') ) {
+
+    			$('body').removeClass('offcanvas-visible');
+    			$('.js-fh5co-nav-toggle').removeClass('active');
+				
+	    	}
+	    
+	    	
+	    }
+		});
+
+	};
+
+
+	// Offcanvas
+	var offcanvasMenu = function() {
+		$('body').prepend('<div id="fh5co-offcanvas" />');
+		$('#fh5co-offcanvas').prepend('<ul id="fh5co-side-links">');
+		$('body').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>');
+
+		$('.left-menu li, .right-menu li').each(function(){
+
+			var $this = $(this);
+
+			$('#fh5co-offcanvas ul').append($this.clone());
+
+		});
+	};
+
+	// Burger Menu
+	var burgerMenu = function() {
+
+		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
+			var $this = $(this);
+
+			$('body').toggleClass('fh5co-overflow offcanvas-visible');
+			$this.toggleClass('active');
+			event.preventDefault();
+
+		});
+
+		$(window).resize(function() {
+			if ( $('body').hasClass('offcanvas-visible') ) {
+		   	$('body').removeClass('offcanvas-visible');
+		   	$('.js-fh5co-nav-toggle').removeClass('active');
+		   }
+		});
+
+		$(window).scroll(function(){
+			if ( $('body').hasClass('offcanvas-visible') ) {
+		   	$('body').removeClass('offcanvas-visible');
+		   	$('.js-fh5co-nav-toggle').removeClass('active');
+		   }
+		});
+
+	};
+
+
+	var testimonialFlexslider = function() {
+		var $flexslider = $('.flexslider');
+		$flexslider.flexslider({
+		  animation: "fade",
+		  manualControls: ".flex-control-nav li",
+		  directionNav: false,
+		  smoothHeight: true,
+		  useCSS: false /* Chrome fix*/
+		});
 	}
 
 
-	/*---------------------------------------------------- */
-	/* FitVids
-	------------------------------------------------------ */ 
-  	$(".fluid-video-wrapper").fitVids();
+	var goToTop = function() {
+
+		$('.js-gotop').on('click', function(event){
+			
+			event.preventDefault();
+
+			$('html, body').animate({
+				scrollTop: $('html').offset().top
+			}, 500);
+			
+			return false;
+		});
+	
+	};
 
 
- 	/*---------------------------------------------------- */
-	/*	Modal Popup
-	------------------------------------------------------ */
 
-    $('.video-link a').magnificPopup({
+	// Animations
 
-       type:'inline',
-       fixedContentPos: false,
-       removalDelay: 200,
-       showCloseBtn: false,
-       mainClass: 'mfp-fade'       
+	var contentWayPoint = function() {
+		var i = 0;
+		$('.animate-box').waypoint( function( direction ) {
 
-    });
+			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+				
+				i++;
 
-    $(document).on('click', '.close-popup', function (e) {
-    		e.preventDefault();
-    		$.magnificPopup.close();
-    });
+				$(this.element).addClass('item-animate');
+				setTimeout(function(){
 
-
- 	/*----------------------------------------------------- */
-  	/* Back to top
-   ------------------------------------------------------- */ 
-	var pxShow = 300; // height on which the button will show
-	var fadeInTime = 400; // how slow/fast you want the button to show
-	var fadeOutTime = 400; // how slow/fast you want the button to hide
-	var scrollSpeed = 300; // how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
-
-   // Show or hide the sticky footer button
-	jQuery(window).scroll(function() {
-
-		if (!( $("#header-search").hasClass('is-visible'))) {
-
-			if (jQuery(window).scrollTop() >= pxShow) {
-				jQuery("#go-top").fadeIn(fadeInTime);
-			} else {
-				jQuery("#go-top").fadeOut(fadeOutTime);
+					$('body .animate-box.item-animate').each(function(k){
+						var el = $(this);
+						setTimeout( function () {
+							el.addClass('fadeInUp animated');
+							el.removeClass('item-animate');
+						},  k * 200, 'easeInOutExpo' );
+					});
+					
+				}, 100);
+				
 			}
 
-		}		
+		} , { offset: '95%' } );
+	};
+	
+	
 
-	});		
+	// Document on load.
+	$(function(){
+		gotToNextSection();
+		loaderPage();
+		fullHeight();
+		toggleBtnColor();
+		ScrollNext();
+		mobileMenuOutsideClick();
+		offcanvasMenu();
+		burgerMenu();
+		testimonialFlexslider();
+		goToTop();
 
-})(jQuery);
+		// Animate
+		contentWayPoint();
+
+	});
+
+
+}());
