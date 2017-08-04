@@ -197,7 +197,23 @@
 		} , { offset: '95%' } );
 	};
 	
-	
+	//Ajax Form Submission
+
+	$("#submit").click(function()
+	{
+		$.ajax({
+			url: "process.php",
+			type:'POST',
+			data:
+			{
+				email:email,
+				message:message 
+			},
+			success:function(msg){
+				alert("Information Sent. Thank you for your interest!");
+			}
+		});
+	});
 
 	// Document on load.
 	$(function(){

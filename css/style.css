@@ -527,6 +527,7 @@ body {
   #fh5co-info,
   #fh5co-pricing,
   #fh5co-faqs,
+  #fh5co-contact,
   #fh5co-footer {
     padding: 3em 0;
   }
@@ -851,11 +852,16 @@ body {
   border-radius: 0;
 }
 
-#fh5co-subscribe {
+#fh5co-subscribe, #fh5co-contact {
   background: #f9f9f9;
   padding: 3em 0;
 }
-#fh5co-subscribe h3 {
+#fh5co-contact{
+  padding-top:20px;
+  padding-bottom:20px;
+  height:70vh;
+}
+#fh5co-contact h3 {
   float: left;
   width: 30%;
   top: 10px;
