@@ -457,6 +457,10 @@ body {
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 20px;
 }
+form{
+  margin:0;
+  padding:0;
+}
 #fh5co-hero .fh5co-learn-more a .arrow {
   display: block;
   width: 50px;
@@ -873,8 +877,8 @@ body {
   font-size: 26px;
   margin-bottom: 0;
   position: relative;
-  height:50vh;
-}
+/*  height:50vh;
+*/}
 #fh5co-subscribe h3 label {
   font-weight: 300;
 }
