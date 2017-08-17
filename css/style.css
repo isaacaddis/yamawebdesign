@@ -11,6 +11,9 @@
 *	Edit this section
 *
 * ======================================================= */
+ul{
+  list-style: none;
+}
 body {
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
@@ -471,7 +474,9 @@ body {
   color: #fff;
   vertical-align: middle;
 }
-
+#fh5co-hero{
+  background-color:black;
+}
 .no-js-fullheight {
   height: 620px;
 }
@@ -868,6 +873,7 @@ body {
   font-size: 26px;
   margin-bottom: 0;
   position: relative;
+  height:50vh;
 }
 #fh5co-subscribe h3 label {
   font-weight: 300;
