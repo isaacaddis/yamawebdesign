@@ -1,1 +1,1 @@
-Official website files for [https://www.yamawebdesign.com](yamawebdesign.com), my web design business. 
+Official website files for [www.yamawebdesign.com](https://www.yamawebdesign.com), my web design business. 
